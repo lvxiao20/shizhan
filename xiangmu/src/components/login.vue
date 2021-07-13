@@ -88,7 +88,7 @@ export default {
             .post("http://127.0.0.1:8888/api/private/v1/login", {
               username: "admin",
               password: "123456",
-            })
+            }) 
             .then((res) => {
               console.log(res.data);
               window.sessionStorage.setItem('token',res.data.data.token)
