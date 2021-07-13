@@ -1,16 +1,20 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
+  <div class="Home">
+        <el-button type="info" @click="tui">退出</el-button>
   </div>
 </template>
 
 <script>
-
-
 export default {
-  name: 'Home',
-  components: {
-
+  methods: {
+    tui(){
+      window.sessionStorage.clear()
+      this.$router.push('/')
+    }
   }
 }
 </script>
+
+<style>
+
+</style>
