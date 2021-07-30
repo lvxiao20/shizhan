@@ -18,9 +18,14 @@ import './assets/font_2671310_eulutyu9mcb/iconfont.css'
 
 // 配置axios
 import axios from 'axios'
+
+// 配置属性插件
+import TreeTable from 'vue-table-with-tree-grid'
+Vue.component('tree-table', TreeTable)
+
 import VueAxios from 'vue-axios'
 //配置路径
-// axios.defaults.baseURL='http://127.0.0.1:8888/api/private/v1/'
+axios.defaults.baseURL='http://127.0.0.1:8888/api/private/v1/'
 // 添加请求拦截器
 axios.interceptors.request.use(function (config) {
   // console.log(config);

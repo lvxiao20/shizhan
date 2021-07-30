@@ -92,9 +92,7 @@ export default {
       this.axios
         .get("http://127.0.0.1:8888/api/private/v1/menus")
         .then((res) => {
-          console.log(res.data);
           this.list = res.data.data;
-          // console.log(this.list);
           if (res.data.meta.status !== 200)
             return this.$message.error(res.data.meta.msg);
         });

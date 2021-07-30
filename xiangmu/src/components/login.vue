@@ -50,7 +50,6 @@ export default {
         name: "admin",
         region: "123456",
         type: "",
-       
       },
       rules: {
         name: [
@@ -79,32 +78,32 @@ export default {
     submitForm(formName) {
       this.$refs[formName].validate((valid) => {
         if (valid) {
-          
           this.axios
             .post("http://127.0.0.1:8888/api/private/v1/login", {
               username: "admin",
               password: "123456",
-            }) 
+            })
             .then((res) => {
               this.$message({
-            showClose: true,
-            message: `恭喜你，亲爱的${this.formLabelAlign.name}登陆成功`,
-            type: "success",
-          });
+                showClose: true,
+                message: `恭喜你，亲爱的${this.formLabelAlign.name}登陆成功`,
+                type: "success",
+              });
               // console.log(res.data);
-              window.sessionStorage.setItem('token',res.data.data.token)
+              window.sessionStorage.setItem("token", res.data.data.token);
               // 计时俩秒后执行
-             setTimeout(()=>{
-               this.$router.push('/home')
-             },2000) 
+              setTimeout(() => {
+                this.$router.push("/home");
+              }, 2000);
+            })
+            .catch((err)=>{
+              this.$message({
+                showClose: true,
+                message: "错了哦,仔细检查一下",
+                type: "error",
+              });
             });
         } else {
-          this.$message({
-            showClose: true,
-            message: "错了哦,仔细检查一下",
-            type: "error",
-          });
-
           return false;
         }
       });
